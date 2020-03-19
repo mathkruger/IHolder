@@ -5,7 +5,7 @@ using System.Text;
 
 namespace IHolder.Business.Entities
 {
-    public class Situacao : Info
+    public class Situacao : Informacoes_base
     {
     }
 }

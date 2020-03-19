@@ -5,7 +5,7 @@ using System.Text;
 
 namespace IHolder.Business.Entities
 {
-    public class Ativo : Info
+    public class Ativo : Informacoes_base
     {
         public int Produto_id { get; set; }
         public string Ticker { get; set; }

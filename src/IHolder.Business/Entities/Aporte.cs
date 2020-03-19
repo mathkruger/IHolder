@@ -5,7 +5,7 @@ using System.Text;
 
 namespace IHolder.Business.Entities
 {
-    public class Aporte : Entity
+    public class Aporte : Entidade_base
     {
         public int Ativo_id { get; set; }
         public decimal Preco_medio { get; set; }

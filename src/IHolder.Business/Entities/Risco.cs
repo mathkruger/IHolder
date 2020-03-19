@@ -5,7 +5,8 @@ using System.Text;
 
 namespace IHolder.Business.Entities
 {
-    public class Risco : Info
+    public class Risco : Informacoes_base
     {
+        public IEnumerable<Tipo_investimento> Tipos_investimentos { get; set; }
     }
 }

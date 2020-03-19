@@ -5,7 +5,7 @@ using System.Text;
 
 namespace IHolder.Business.Entities
 {
-    public class Distribuicao_por_ativo : Valores
+    public class Distribuicao_por_ativo : Valores_base
     {
         public int Ativo_id { get; set; }
         public int Orientacao_id { get; set; }

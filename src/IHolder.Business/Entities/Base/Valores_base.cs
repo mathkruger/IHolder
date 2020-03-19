@@ -4,7 +4,7 @@ using System.Text;
 
 namespace IHolder.Business.Entities.Base
 {
-    public abstract class Valores : Entity
+    public abstract class Valores_base : Entidade_base
     {
         public decimal Percentual_objetivo { get; set; }
         public decimal Percentual_atual { get; set; }
