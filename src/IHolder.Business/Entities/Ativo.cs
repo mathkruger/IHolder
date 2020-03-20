@@ -12,5 +12,13 @@ namespace IHolder.Business.Entities
         public decimal Cotacao { get; set; }
         public int Risco_id { get; set; }
         public int Situacao_id { get; set; }
+
+        public Produto Produto { get; set; }
+        public Risco Risco { get; set; }
+        public Situacao Situacao { get; set; }
+
+        public IEnumerable<Distribuicao_por_ativo> Distribuicoes_por_ativos { get; set; }
+
+        public IEnumerable<Aporte> Aportes { get; set; }
     }
 }

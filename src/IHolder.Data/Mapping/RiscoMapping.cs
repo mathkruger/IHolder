@@ -23,7 +23,11 @@ namespace IHolder.Data.Mapping
                 .WithOne(t => t.Risco)
                 .HasForeignKey(t => t.Risco_id);
 
-            builder.ToTable("RISCO");
+            builder.HasMany(r => r.Ativos)
+                .WithOne(t => t.Risco)
+                .HasForeignKey(t => t.Risco_id);
+
+            builder.ToTable("Risco");
         }
     }
 }

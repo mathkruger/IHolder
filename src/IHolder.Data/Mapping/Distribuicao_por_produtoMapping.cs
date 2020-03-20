@@ -12,7 +12,7 @@ namespace IHolder.Data.Mapping
         public void Configure(EntityTypeBuilder<Distribuicao_por_produto> builder)
         {
             builder.HasKey(d => d.Id);
-            builder.ToTable("DISTRIBUICAO_POR_PRODUTO");
+            builder.ToTable("Distribuicao_por_produto");
         }
     }
 }

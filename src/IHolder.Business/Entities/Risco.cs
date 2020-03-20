@@ -8,5 +8,6 @@ namespace IHolder.Business.Entities
     public class Risco : Informacoes_base
     {
         public IEnumerable<Tipo_investimento> Tipos_investimentos { get; set; }
+        public IEnumerable<Ativo> Ativos { get; set; }
     }
 }

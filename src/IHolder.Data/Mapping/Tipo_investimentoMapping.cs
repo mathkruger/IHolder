@@ -30,7 +30,7 @@ namespace IHolder.Data.Mapping
                 .HasForeignKey(p => p.Tipo_investimento_id);
 
 
-            builder.ToTable("TIPO_INVESTIMENTO");
+            builder.ToTable("Tipo_investimento");
         }
     }
 }

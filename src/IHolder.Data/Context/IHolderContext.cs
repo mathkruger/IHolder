@@ -2,13 +2,14 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace IHolder.Data.Context
 {
     public class IHolderContext : DbContext
     {
-        public IHolderContext(DbContextOptions options) : base (options)
+        public IHolderContext(DbContextOptions options) : base(options)
         {
 
         }
@@ -23,5 +24,25 @@ namespace IHolder.Data.Context
         public DbSet<Risco> Riscos { get; set; }
         public DbSet<Situacao> Situacoes { get; set; }
         public DbSet<Tipo_investimento> Tipos_investimentos { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            foreach (var property in modelBuilder
+                  .Model
+                  .GetEntityTypes()
+                  .SelectMany(
+                     e => e.GetProperties()
+                        .Where(p => p.ClrType == typeof(string))))
+            {
+                property.SetColumnType("VARCHAR(100)");
+            }
+
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(IHolderContext).Assembly);
+
+            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys())) relationship.DeleteBehavior = DeleteBehavior.ClientSetNull;
+
+            base.OnModelCreating(modelBuilder);
+        }
+
     }
 }

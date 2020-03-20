@@ -11,7 +11,9 @@ namespace IHolder.Data.Mapping
     {
         public void Configure(EntityTypeBuilder<Aporte> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(a => a.Id);
+            builder.ToTable("Aporte");
+
         }
     }
 }

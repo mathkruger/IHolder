@@ -27,7 +27,11 @@ namespace IHolder.Data.Mapping
             .WithOne(d => d.Orientacao)
             .HasForeignKey(d => d.Orientacao_id);
 
-            builder.ToTable("ORIENTACAO");
+            builder.HasMany(o => o.Distribuicoes_por_ativos)
+            .WithOne(d => d.Orientacao)
+            .HasForeignKey(d => d.Orientacao_id);
+
+            builder.ToTable("Orientacao");
         }
     }
 }

@@ -4,3 +4,13 @@
 *.ide
 *.ide-shm
 *.ide-wal
+src/IHolder.Api/appsettings.json
+.vs/IHolder/DesignTimeBuild/.dtbcache
+.vs/IHolder/v16/.suo
+.vs/IHolder/v16/Server/sqlite3/storage.ide
+.vs/IHolder/v16/Server/sqlite3/storage.ide-shm
+.vs/IHolder/v16/Server/sqlite3/storage.ide-wal
+src/IHolder.Api/appsettings.json
+src/IHolder.Data/obj/IHolder.Data.csproj.nuget.cache
+src/IHolder.Data/obj/IHolder.Data.csproj.nuget.dgspec.json
+src/IHolder.Data/obj/IHolder.Data.csproj.nuget.g.props

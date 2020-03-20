@@ -17,7 +17,7 @@ namespace IHolder.Data.Mapping
                 .WithOne(p => p.Distribuicao_por_tipo_investimento)
                 .HasForeignKey(p => p.Distribuicao_por_tipo_investimento_id);
 
-            builder.ToTable("DISTRIBUICAO_POR_TIPO_INVESTIMENTO");
+            builder.ToTable("Distribuicao_por_tipo_investimento");
 
         }
     }

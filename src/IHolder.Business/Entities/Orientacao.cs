@@ -11,5 +11,7 @@ namespace IHolder.Business.Entities
 
         public IEnumerable<Distribuicao_por_produto> Distribuicoes_por_produtos { get; set; }
 
+        public IEnumerable<Distribuicao_por_ativo> Distribuicoes_por_ativos { get; set; }
+
     }
 }

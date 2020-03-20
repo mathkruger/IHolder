@@ -19,7 +19,11 @@ namespace IHolder.Data.Mapping
                 .IsRequired()
                 .HasColumnType("VARCHAR(240)");
 
-            builder.ToTable("SITUACAO");
+            builder.HasMany(p => p.Ativos)
+                .WithOne(a => a.Situacao)
+                .HasForeignKey(a => a.Situacao_id);
+
+            builder.ToTable("Situacao");
         }
     }
 }

@@ -23,7 +23,11 @@ namespace IHolder.Data.Mapping
                .WithOne(d => d.Produto)
                .HasForeignKey(d => d.Produto_id);
 
-            builder.ToTable("PRODUTO");
+            builder.HasMany(p => p.Ativos)
+                .WithOne(a => a.Produto)
+                .HasForeignKey(a => a.Produto_id);
+
+            builder.ToTable("Produto");
 
 
         }
