@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IHolder.Api.Configurations;
 using IHolder.Data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,6 +30,9 @@ namespace IHolder.Api
         {
             services.AddDbContext<IHolderContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("IHolderConnection")));
+
+            DependencyInjectionConfiguration.ResolveDependencies(services);
+
             services.AddControllers();
         }
 
