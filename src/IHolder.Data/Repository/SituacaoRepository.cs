@@ -8,12 +8,12 @@ using System.Text;
 
 namespace IHolder.Data.Repository
 {
-    public class SituacaoRepository : RepositoryBase<Situacao>, ISituacaoRepository
-    {
-        public SituacaoRepository(IHolderContext context) : base(context)
-        {
+    //public class SituacaoRepository : RepositoryBase<Situacao>, ISituacaoRepository
+    //{
+    //    public SituacaoRepository(IHolderContext context) : base(context)
+    //    {
 
-        }
+    //    }
 
-    }
+    //}
 }

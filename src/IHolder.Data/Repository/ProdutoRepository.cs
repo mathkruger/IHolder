@@ -1,5 +1,6 @@
 ﻿using IHolder.Business.Entities;
 using IHolder.Business.Interfaces;
+using IHolder.Business.Interfaces.Repositories;
 using IHolder.Data.Context;
 using IHolder.Data.Repository.Base;
 using System;

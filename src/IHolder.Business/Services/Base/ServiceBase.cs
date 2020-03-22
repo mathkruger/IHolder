@@ -18,16 +18,16 @@ namespace IHolder.Business.Services.Base
             _notifier = notifier;
         }
 
-        protected void Notifier (string message)
+        protected void Notify (string message)
         {
             _notifier.AddNotification(new Notification(message));
         }
 
-        protected void Notifier (ValidationResult validationResult)
+        protected void Notify (ValidationResult validationResult)
         {
             foreach (var erro in validationResult.Errors)
             {
-                Notifier(erro.ErrorMessage);
+                Notify(erro.ErrorMessage);
             }
         }
 
@@ -38,7 +38,7 @@ namespace IHolder.Business.Services.Base
 
             if (validator.IsValid) return true;
 
-            Notifier(validator);
+            Notify(validator);
 
             return false;
 

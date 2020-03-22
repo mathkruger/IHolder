@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace IHolder.Data.Repository.Base
 {
-    public abstract class RepositoryBase<TEntity> : IRepository<TEntity> where TEntity : Entidade_base, new()
+    public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : Entidade_base, new()
     {
         protected readonly IHolderContext Context;
         protected readonly DbSet<TEntity> DbSet;
