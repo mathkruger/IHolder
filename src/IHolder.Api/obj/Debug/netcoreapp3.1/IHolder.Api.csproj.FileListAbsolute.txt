@@ -51,4 +51,6 @@ C:\gitRepository\IHolder\src\IHolder.Api\obj\Debug\netcoreapp3.1\IHolder.Api.csp
 C:\gitRepository\IHolder\src\IHolder.Api\obj\Debug\netcoreapp3.1\IHolder.Api.dll
 C:\gitRepository\IHolder\src\IHolder.Api\obj\Debug\netcoreapp3.1\IHolder.Api.pdb
 C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\gitRepository\IHolder\src\IHolder.Api\obj\Debug\netcoreapp3.1\IHolder.Api.MvcApplicationPartsAssemblyInfo.cache

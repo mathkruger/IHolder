@@ -5,3 +5,4 @@ C:\gitRepository\IHolder\src\IHolder.Business\obj\Debug\netcoreapp3.1\IHolder.Bu
 C:\gitRepository\IHolder\src\IHolder.Business\obj\Debug\netcoreapp3.1\IHolder.Business.AssemblyInfo.cs
 C:\gitRepository\IHolder\src\IHolder.Business\obj\Debug\netcoreapp3.1\IHolder.Business.dll
 C:\gitRepository\IHolder\src\IHolder.Business\obj\Debug\netcoreapp3.1\IHolder.Business.pdb
+C:\gitRepository\IHolder\src\IHolder.Business\obj\Debug\netcoreapp3.1\IHolder.Business.csprojAssemblyReference.cache

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using IHolder.Api.Configurations;
 using IHolder.Data.Context;
 using Microsoft.AspNetCore.Builder;
@@ -31,6 +32,8 @@ namespace IHolder.Api
             services.AddDbContext<IHolderContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("IHolderConnection")));
 
+            services.AddAutoMapper(typeof(Startup));
+
             DependencyInjectionConfiguration.ResolveDependencies(services);
 
             services.AddControllers();
@@ -39,6 +42,7 @@ namespace IHolder.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
