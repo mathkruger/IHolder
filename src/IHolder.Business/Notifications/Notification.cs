@@ -11,6 +11,6 @@ namespace IHolder.Business.Notifications
             Message = message;
         }
 
-        public string Message { get; set; }
+        public string Message { get;}
     }
 }

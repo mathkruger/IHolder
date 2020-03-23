@@ -11,6 +11,6 @@ namespace IHolder.Business.Interfaces.Services
         Task<int> Insert(Ativo ativo);
         Task<int> Update(Ativo ativo);
         Task Delete(int id);
-        Task GetAll();
+        Task<IEnumerable<Ativo>> GetAll();
     }
 }

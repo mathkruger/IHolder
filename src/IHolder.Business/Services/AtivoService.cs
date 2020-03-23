@@ -29,9 +29,9 @@ namespace IHolder.Business.Services
             await _ativoRepository.Delete(id);
         }
 
-        public Task GetAll()
+        public async Task<IEnumerable<Ativo>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _ativoRepository.GetAll();
         }
 
         public Task<int> Insert(Ativo ativo)
