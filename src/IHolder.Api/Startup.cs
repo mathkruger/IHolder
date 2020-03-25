@@ -36,6 +36,11 @@ namespace IHolder.Api
 
             DependencyInjectionConfiguration.ResolveDependencies(services);
 
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
+
             services.AddControllers();
         }
 

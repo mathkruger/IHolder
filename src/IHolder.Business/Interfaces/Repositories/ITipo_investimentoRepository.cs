@@ -6,7 +6,7 @@ using System.Text;
 
 namespace IHolder.Business.Interfaces.Repositories
 {
-    public interface ISituacaoRepository : IRepositoryBase<Situacao>
+    public interface ITipo_investimentoRepository : IRepositoryBase<Tipo_investimento>
     {
     }
 }

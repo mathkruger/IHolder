@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace IHolder.Business.Interfaces.Base
+namespace IHolder.Business.Interfaces.Notifications
 {
     public interface INotifier
     {

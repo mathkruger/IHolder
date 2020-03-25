@@ -1,5 +1,5 @@
 ﻿using IHolder.Business.Entities;
-using IHolder.Business.Interfaces.Base;
+using IHolder.Business.Interfaces.Notifications;
 using IHolder.Business.Interfaces.Repositories;
 using IHolder.Business.Interfaces.Services;
 using IHolder.Business.Services.Base;

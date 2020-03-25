@@ -1,4 +1,4 @@
-﻿using IHolder.Business.Interfaces.Base;
+﻿using IHolder.Business.Interfaces.Notifications;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,5 +1,5 @@
 ﻿using IHolder.Business.Interfaces;
-using IHolder.Business.Interfaces.Base;
+using IHolder.Business.Interfaces.Notifications;
 using IHolder.Business.Interfaces.Repositories;
 using IHolder.Business.Interfaces.Services;
 using IHolder.Business.Notifications;
@@ -26,6 +26,9 @@ namespace IHolder.Api.Configurations
             services.AddScoped<IAporteRepository, AporteRepository>();
             services.AddScoped<IAtivoRepository, AtivoRepository>();
             services.AddScoped<IAtivoService, AtivoService>();
+
+            services.AddScoped<ITipo_investimentoRepository, Tipo_investimentoRepository>();
+            services.AddScoped<ITipo_investimentoService, Tipo_investimentoService>();
 
             return services;
         }

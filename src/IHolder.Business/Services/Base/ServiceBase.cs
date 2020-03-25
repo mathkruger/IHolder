@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
 using IHolder.Business.Entities.Base;
-using IHolder.Business.Interfaces.Base;
+using IHolder.Business.Interfaces.Notifications;
 using IHolder.Business.Notifications;
 using System;
 using System.Collections.Generic;

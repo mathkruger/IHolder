@@ -1,5 +1,5 @@
 ﻿using IHolder.Business.Entities;
-using IHolder.Business.Interfaces.Base;
+using IHolder.Business.Repositories.Base;
 using System;
 using System.Collections.Generic;
 using System.Text;

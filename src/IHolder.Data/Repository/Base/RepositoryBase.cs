@@ -1,5 +1,5 @@
 ﻿using IHolder.Business.Entities.Base;
-using IHolder.Business.Interfaces.Base;
+using IHolder.Business.Repositories.Base;
 using IHolder.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
