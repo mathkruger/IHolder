@@ -9,7 +9,6 @@ namespace IHolder.Business.Entities
     {
         public int Ativo_id { get; set; }
         public int Orientacao_id { get; set; }
-
         public Ativo Ativo { get; set; }
         public Orientacao Orientacao { get; set; }
 

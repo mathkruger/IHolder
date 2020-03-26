@@ -72,7 +72,6 @@ namespace IHolder.Data.Migrations
 
                     b.Property<string>("Ticker")
                         .IsRequired()
-                        .HasColumnName("VARCHAR(50)")
                         .HasColumnType("VARCHAR(100)");
 
                     b.HasKey("Id");

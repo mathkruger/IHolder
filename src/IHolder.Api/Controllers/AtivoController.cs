@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using IHolder.Api.Controllers.Base;
 using IHolder.Api.ViewModels;
+using IHolder.Business.Entities;
 using IHolder.Business.Interfaces.Notifications;
 using IHolder.Business.Interfaces.Services;
 using IHolder.Business.Services;
@@ -17,19 +18,27 @@ namespace IHolder.Api.Controllers
     public class AtivoController : ResponseBaseController
     {
         private readonly IAtivoService _ativoService;
-        private readonly IMapper _mapper;
 
         public AtivoController(IAtivoService ativoService, IMapper mapper, INotifier notifier) : base(notifier, mapper)
         {
             this._ativoService = ativoService;
-            this._mapper = mapper;
         }
         [HttpGet()]
         public async Task<ActionResult> GetAll()
         {
             var response = _mapper.Map<IEnumerable<AtivoViewModel>>(await _ativoService.GetAll());
-
             return ResponseBase(response);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> Insert(AtivoViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return ResponseBase(ModelState);
+
+            var response = await _ativoService.Insert(_mapper.Map<Ativo>(model));
+            return ResponseBase(response);
+        }
+
     }
 }

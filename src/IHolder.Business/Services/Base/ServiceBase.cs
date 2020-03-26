@@ -18,16 +18,16 @@ namespace IHolder.Business.Services.Base
             _notifier = notifier;
         }
 
-        protected void Notify (string message)
+        protected void Notify (Notification message)
         {
-            _notifier.AddNotification(new Notification(message));
+            _notifier.AddNotification(message);
         }
 
         protected void Notify (ValidationResult validationResult)
         {
             foreach (var erro in validationResult.Errors)
             {
-                Notify(erro.ErrorMessage);
+                Notify(new Notification(erro.ErrorMessage));
             }
         }
 

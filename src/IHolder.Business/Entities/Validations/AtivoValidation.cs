@@ -10,7 +10,7 @@ namespace IHolder.Business.Entities.Validations
         public AtivoValidation()
         {
             RuleFor(f => f.Cotacao)
-                .GreaterThan(1).WithMessage("O valor da cotação precisa ser maior do que {valueToCompare}");
+                .GreaterThan(0).WithMessage("O valor da cotação precisa ser maior do que {ComparisonValue}");
         }
     }
 }

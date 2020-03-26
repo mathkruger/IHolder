@@ -9,9 +9,7 @@ namespace IHolder.Business.Entities
     {
         public int Risco_id { get; set; }
         public Risco Risco { get; set; }
-
         public IEnumerable<Distribuicao_por_tipo_investimento> Distribuicoes_por_tipos_investimentos { get; set; }
-
         public IEnumerable<Produto> Produtos { get; set; }
     }
 }

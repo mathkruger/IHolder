@@ -13,7 +13,7 @@ namespace IHolder.Data.Mapping
         {
             builder.HasKey(a => a.Id);
             builder.Property(a => a.Ticker)
-                .HasColumnName("VARCHAR(50)")
+                .HasColumnType("VARCHAR(50)")
                 .IsRequired();
             builder.Property(r => r.Descricao)
                 .IsRequired()

@@ -1,16 +1,12 @@
 ﻿using IHolder.Business.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+using IHolder.Business.Interfaces.Services.Base;
 
 namespace IHolder.Business.Interfaces.Services
 {
-    public interface IAtivoService
+    public interface IAtivoService : IServiceInsert<Ativo>, 
+                                     IServiceUpdate<Ativo>,
+                                     IServiceDelete, 
+                                     IServiceGetAll<Ativo>
     {
-        Task<int> Insert(Ativo ativo);
-        Task<int> Update(Ativo ativo);
-        Task Delete(int id);
-        Task<IEnumerable<Ativo>> GetAll();
     }
 }
