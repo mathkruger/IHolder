@@ -4,14 +4,16 @@ using IHolder.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace IHolder.Data.Migrations
 {
     [DbContext(typeof(IHolderContext))]
-    partial class IHolderContextModelSnapshot : ModelSnapshot
+    [Migration("20200327114503_AddingUsers")]
+    partial class AddingUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -86,11 +88,14 @@ namespace IHolder.Data.Migrations
                     b.Property<int>("Risco_id")
                         .HasColumnType("int");
 
+                    b.Property<int>("Situacao_id")
+                        .HasColumnType("int");
+
                     b.Property<string>("Ticker")
                         .IsRequired()
                         .HasColumnType("VARCHAR(50)");
 
-                    b.Property<int>("Usuario_id")
+                    b.Property<int?>("Usuario_id")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -98,6 +103,8 @@ namespace IHolder.Data.Migrations
                     b.HasIndex("Produto_id");
 
                     b.HasIndex("Risco_id");
+
+                    b.HasIndex("Situacao_id");
 
                     b.HasIndex("Usuario_id");
 
@@ -338,42 +345,6 @@ namespace IHolder.Data.Migrations
                     b.ToTable("Situacao");
                 });
 
-            modelBuilder.Entity("IHolder.Business.Entities.Situacao_por_ativo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Ativo_id")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("Data_alteracao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("Data_inclusao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Observacao")
-                        .HasColumnType("VARCHAR(240)");
-
-                    b.Property<int>("Situacao_id")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Usuario_id")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Ativo_id");
-
-                    b.HasIndex("Situacao_id");
-
-                    b.HasIndex("Usuario_id");
-
-                    b.ToTable("Situacao_por_ativo");
-                });
-
             modelBuilder.Entity("IHolder.Business.Entities.Tipo_investimento", b =>
                 {
                     b.Property<int>("Id")
@@ -470,10 +441,14 @@ namespace IHolder.Data.Migrations
                         .HasForeignKey("Risco_id")
                         .IsRequired();
 
+                    b.HasOne("IHolder.Business.Entities.Situacao", "Situacao")
+                        .WithMany("Ativos")
+                        .HasForeignKey("Situacao_id")
+                        .IsRequired();
+
                     b.HasOne("IHolder.Business.Entities.Usuario", "Usuario")
                         .WithMany("Ativos")
-                        .HasForeignKey("Usuario_id")
-                        .IsRequired();
+                        .HasForeignKey("Usuario_id");
                 });
 
             modelBuilder.Entity("IHolder.Business.Entities.Distribuicao_por_ativo", b =>
@@ -540,24 +515,6 @@ namespace IHolder.Data.Migrations
                     b.HasOne("IHolder.Business.Entities.Tipo_investimento", "Tipo_investimento")
                         .WithMany("Produtos")
                         .HasForeignKey("Tipo_investimento_id")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("IHolder.Business.Entities.Situacao_por_ativo", b =>
-                {
-                    b.HasOne("IHolder.Business.Entities.Ativo", "Ativo")
-                        .WithMany("Situacoes_por_ativos")
-                        .HasForeignKey("Ativo_id")
-                        .IsRequired();
-
-                    b.HasOne("IHolder.Business.Entities.Situacao", "Situacao")
-                        .WithMany("Situacoes_por_ativos")
-                        .HasForeignKey("Situacao_id")
-                        .IsRequired();
-
-                    b.HasOne("IHolder.Business.Entities.Usuario", "Usuario")
-                        .WithMany("Situacoes_por_ativos")
-                        .HasForeignKey("Usuario_id")
                         .IsRequired();
                 });
 

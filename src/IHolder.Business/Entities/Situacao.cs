@@ -7,6 +7,6 @@ namespace IHolder.Business.Entities
 {
     public class Situacao : Informacoes_base
     {
-        public IEnumerable<Ativo> Ativos { get; set; }
+        public IEnumerable<Situacao_por_ativo> Situacoes_por_ativos { get; set; }
     }
 }

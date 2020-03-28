@@ -25,6 +25,8 @@ namespace IHolder.Data.Context
         public DbSet<Situacao> Situacoes { get; set; }
         public DbSet<Tipo_investimento> Tipos_investimentos { get; set; }
 
+        public DbSet<Usuario> Usuarios { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             foreach (var property in modelBuilder

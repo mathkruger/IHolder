@@ -10,6 +10,11 @@ namespace IHolder.Business.Entities
         public int Ativo_id { get; set; }
         public decimal Preco_medio { get; set; }
         public decimal Quantidade { get; set; }
+        public int Usuario_id { get; set; }
+        public DateTime Data_aporte { get; set; }
+        public DateTime Data_inclusao { get; set; }
+        public DateTime? Data_alteracao { get; set; }
         public Ativo Ativo { get; set; }
+        public Usuario Usuario { get; set; }
     }
 }

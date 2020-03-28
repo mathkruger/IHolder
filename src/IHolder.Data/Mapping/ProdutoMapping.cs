@@ -15,6 +15,7 @@ namespace IHolder.Data.Mapping
             builder.Property(p => p.Descricao)
             .IsRequired()
             .HasColumnType("VARCHAR(30)");
+            builder.Property(d => d.Tipo_investimento_id).IsRequired();
             builder.Property(p => p.Caracteristicas)
             .IsRequired()
             .HasColumnType("VARCHAR(240)");
