@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IHolder.Api.Configurations
+namespace IHolder.Api.Configurations.Extensions
 {
     public static class AuthenticationConfiguration
     {

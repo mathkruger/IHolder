@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using IHolder.Api.Configurations;
+using IHolder.Api.Configurations.Extensions;
 using IHolder.Data.Context;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -39,10 +40,7 @@ namespace IHolder.Api
 
             DependencyInjectionConfiguration.ResolveDependencies(services);
 
-            services.Configure<ApiBehaviorOptions>(options =>
-            {
-                options.SuppressModelStateInvalidFilter = true;
-            });
+            services.AddApiConfiguration();
 
             services.AddAuthenticationConfiguration(Configuration);
 
@@ -57,9 +55,12 @@ namespace IHolder.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseHsts();
+            }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
 
             app.UseAuthentication();
