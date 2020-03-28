@@ -14,10 +14,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace IHolder.Api.Controllers
+namespace IHolder.Api.Controllers.V1
 {
-    [Route("api/[controller]")]
     [Authorize]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class Tipo_investimentoController : ResponseBaseController
     {
         private readonly ITipo_investimentoService _tipo_InvestimentoService;

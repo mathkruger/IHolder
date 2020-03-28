@@ -13,14 +13,17 @@ using IHolder.Business.Interfaces;
 using IHolder.Business.Interfaces.Notifications;
 using IHolder.Business.Interfaces.Services;
 using IHolder.Business.Notifications;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
-namespace IHolder.Api.Controllers
+namespace IHolder.Api.Controllers.V1
 {
-    [Route("api/[controller]")]
+    [Authorize]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class UsuarioController : ResponseBaseController
     {
         private readonly IUsuarioService _usuarioService;
@@ -34,7 +37,7 @@ namespace IHolder.Api.Controllers
             _usuarioService = usuarioService;
             _appSettings = appSettings.Value;
         }
-
+        [AllowAnonymous]
         [HttpPost("entrar")]
         public async Task<ActionResult<Usuario_resposta_autenticacaoViewModel>> Login([FromBody] Usuario_autenticacaoViewModel usuario_autenticacao)
         {
