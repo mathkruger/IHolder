@@ -28,10 +28,10 @@ namespace IHolder.Api.Controllers.V1
     {
         private readonly IUsuarioService _usuarioService;
         private readonly AppSettings _appSettings;
-        public UsuarioController(INotifier notifier, 
-            IMapper mapper, 
+        public UsuarioController(INotifier notifier,
+            IMapper mapper,
             IUsuarioService usuarioService,
-            IOptions<AppSettings> appSettings, 
+            IOptions<AppSettings> appSettings,
             IUser user) : base(notifier, mapper, user)
         {
             _usuarioService = usuarioService;
@@ -47,7 +47,10 @@ namespace IHolder.Api.Controllers.V1
                                u.Senha == usuario_autenticacao.Password).Result);
 
             if (usuario == null)
+            {
                 NotifyError("Usuário ou senha inválidos");
+                return ResponseBase(usuario);
+            }
 
             Usuario_resposta_autenticacaoViewModel usuarioAutenticado = await GenerateToken(usuario);
             return ResponseBase(usuarioAutenticado);

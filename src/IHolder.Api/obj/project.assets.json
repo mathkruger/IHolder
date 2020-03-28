@@ -9308,6 +9308,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.2",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.1",
       "Swashbuckle.AspNetCore >= 5.2.1",
+      "Swashbuckle.AspNetCore.Swagger >= 5.2.1",
       "automapper.extensions.microsoft.dependencyinjection >= 7.0.0"
     ]
   },
@@ -9387,6 +9388,10 @@
             "version": "[3.1.1, )"
           },
           "Swashbuckle.AspNetCore": {
+            "target": "Package",
+            "version": "[5.2.1, )"
+          },
+          "Swashbuckle.AspNetCore.Swagger": {
             "target": "Package",
             "version": "[5.2.1, )"
           },

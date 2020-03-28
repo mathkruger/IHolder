@@ -10,10 +10,13 @@ using IHolder.Data.Context;
 using IHolder.Data.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static IHolder.Api.Configurations.Extensions.SwaggerConfiguration;
 
 namespace IHolder.Api.Configurations.Extensions
 {
@@ -23,6 +26,10 @@ namespace IHolder.Api.Configurations.Extensions
         {
             services.AddScoped<IHolderContext>();
             services.AddScoped<INotifier, Notifier>();
+
+            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSingleton<IUser, AspNetUser>();
 
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
             services.AddScoped<ISituacaoRepository, SituacaoRepository>();
@@ -36,8 +43,7 @@ namespace IHolder.Api.Configurations.Extensions
             services.AddScoped<IRepositoryBase<Usuario>, UsuarioRepository>();
             services.AddScoped<IUsuarioService, UsuarioService>();
 
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddSingleton<IUser, AspNetUser>();
+
 
             return services;
         }

@@ -34,19 +34,20 @@ namespace IHolder.Api.Configurations.Extensions
             {
                 options.AddPolicy("Development",
                     builder =>
-                    builder.AllowAnyOrigin()
-                    .AllowAnyHeader()
+                    builder
+                    .WithOrigins()
                     .AllowAnyMethod()
+                    .AllowAnyHeader()
                     .AllowCredentials());
 
                 options.AddPolicy("Production",
                     builder =>
-                    builder.WithMethods("GET", "POST", "PUT")
+                    builder
+                    .WithMethods("GET")
                     .WithOrigins("https://mydomain.com/")
                     .SetIsOriginAllowedToAllowWildcardSubdomains()
                     .AllowAnyHeader());
             });
-
 
             return services;
         }

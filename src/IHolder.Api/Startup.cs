@@ -12,12 +12,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 namespace IHolder.Api
 {
@@ -42,21 +44,26 @@ namespace IHolder.Api
 
             services.AddApiConfiguration();
 
+            services.AddSwaggerConfiguration();
+
+
             services.AddAuthenticationConfiguration(Configuration);
 
             services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
 
             if (env.IsDevelopment())
             {
+                app.UseCors(policyName: "Development");
                 app.UseDeveloperExceptionPage();
             }
             else
             {
+                app.UseCors(policyName: "Development");
                 app.UseHsts();
             }
 
@@ -70,6 +77,14 @@ namespace IHolder.Api
             {
                 endpoints.MapControllers();
             });
+
+            app.UseSwaggerConfiguration(env, provider);
+
+            //app.UseSwagger();
+            //app.UseSwaggerUI(c =>
+            //{
+            //    c.SwaggerEndpoint(url: "/swagger/v1/swagger.json", name: "IHolder Web Api V1");
+            //});
         }
     }
 }
