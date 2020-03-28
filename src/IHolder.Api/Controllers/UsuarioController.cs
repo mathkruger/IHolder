@@ -9,6 +9,7 @@ using AutoMapper;
 using IHolder.Api.Configurations;
 using IHolder.Api.Controllers.Base;
 using IHolder.Api.ViewModels;
+using IHolder.Business.Interfaces;
 using IHolder.Business.Interfaces.Notifications;
 using IHolder.Business.Interfaces.Services;
 using IHolder.Business.Notifications;
@@ -24,7 +25,11 @@ namespace IHolder.Api.Controllers
     {
         private readonly IUsuarioService _usuarioService;
         private readonly AppSettings _appSettings;
-        public UsuarioController(INotifier notifier, IMapper mapper, IUsuarioService usuarioService, IOptions<AppSettings> appSettings) : base(notifier, mapper)
+        public UsuarioController(INotifier notifier, 
+            IMapper mapper, 
+            IUsuarioService usuarioService,
+            IOptions<AppSettings> appSettings, 
+            IUser user) : base(notifier, mapper, user)
         {
             _usuarioService = usuarioService;
             _appSettings = appSettings.Value;
@@ -49,7 +54,9 @@ namespace IHolder.Api.Controllers
         private async Task<Usuario_resposta_autenticacaoViewModel> GenerateToken(UsuarioViewModel user)
         {
             Claim[] claims = new Claim[] {
-                new Claim(ClaimTypes.Name, user.Login.ToString())
+                new Claim(ClaimTypes.Name, user.Nome.ToString()),
+                new Claim(ClaimTypes.Email, user.Email.ToString()),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
             };
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
             byte[] key = Encoding.ASCII.GetBytes(_appSettings.Chave);

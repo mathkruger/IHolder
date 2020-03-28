@@ -8,6 +8,7 @@ using IHolder.Business.Repositories.Base;
 using IHolder.Business.Services;
 using IHolder.Data.Context;
 using IHolder.Data.Repository;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,9 @@ namespace IHolder.Api.Configurations
 
             services.AddScoped<IRepositoryBase<Usuario>, UsuarioRepository>();
             services.AddScoped<IUsuarioService, UsuarioService>();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSingleton<IUser, AspNetUser>();
 
             return services;
         }

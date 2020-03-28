@@ -6,6 +6,7 @@ using AutoMapper;
 using IHolder.Api.Controllers.Base;
 using IHolder.Api.ViewModels;
 using IHolder.Business.Entities;
+using IHolder.Business.Interfaces;
 using IHolder.Business.Interfaces.Notifications;
 using IHolder.Business.Interfaces.Services;
 using IHolder.Business.Services;
@@ -19,7 +20,8 @@ namespace IHolder.Api.Controllers
     {
         private readonly IAtivoService _ativoService;
 
-        public AtivoController(IAtivoService ativoService, IMapper mapper, INotifier notifier) : base(notifier, mapper)
+        public AtivoController(IAtivoService ativoService, IMapper mapper, INotifier notifier, IUser user) 
+                                : base(notifier, mapper, user)
         {
             this._ativoService = ativoService;
         }

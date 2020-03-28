@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using IHolder.Business.Interfaces;
 using IHolder.Business.Interfaces.Notifications;
 using IHolder.Business.Notifications;
 using Microsoft.AspNetCore.Http;
@@ -16,10 +17,12 @@ namespace IHolder.Api.Controllers.Base
     {
         protected readonly INotifier _notifier;
         protected readonly IMapper _mapper;
-        public ResponseBaseController(INotifier notifier, IMapper mapper)
+        public readonly IUser _user;
+        public ResponseBaseController(INotifier notifier, IMapper mapper, IUser user)
         {
             _notifier = notifier;
             _mapper = mapper;
+            _user = user;
         }
 
         protected ActionResult ResponseBase(object result = null)
