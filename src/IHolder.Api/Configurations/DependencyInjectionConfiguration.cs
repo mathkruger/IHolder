@@ -1,8 +1,10 @@
-﻿using IHolder.Business.Interfaces;
+﻿using IHolder.Business.Entities;
+using IHolder.Business.Interfaces;
 using IHolder.Business.Interfaces.Notifications;
 using IHolder.Business.Interfaces.Repositories;
 using IHolder.Business.Interfaces.Services;
 using IHolder.Business.Notifications;
+using IHolder.Business.Repositories.Base;
 using IHolder.Business.Services;
 using IHolder.Data.Context;
 using IHolder.Data.Repository;
@@ -29,6 +31,9 @@ namespace IHolder.Api.Configurations
 
             services.AddScoped<ITipo_investimentoRepository, Tipo_investimentoRepository>();
             services.AddScoped<ITipo_investimentoService, Tipo_investimentoService>();
+
+            services.AddScoped<IRepositoryBase<Usuario>, UsuarioRepository>();
+            services.AddScoped<IUsuarioService, UsuarioService>();
 
             return services;
         }

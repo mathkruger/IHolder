@@ -14,7 +14,8 @@ namespace IHolder.Business.Repositories.Base
         Task Delete(int id);
         Task<TEntity> GetById(int id);
         Task<IEnumerable<TEntity>> GetAll();
-        Task<IEnumerable<TEntity>> GetBy(Expression<Func<TEntity, bool>> predicate);
+        Task<IEnumerable<TEntity>> GetManyBy(Expression<Func<TEntity, bool>> predicate);
+        Task<TEntity> GetBy(Expression<Func<TEntity, bool>> predicate);
         Task<int> SaveChanges();
 
     }

@@ -127,4 +127,13 @@ C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\ru\Microsoft.Co
 C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
+C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll
 C:\gitRepository\IHolder\src\IHolder.Api\obj\Debug\netcoreapp3.1\IHolder.Api.MvcApplicationPartsAssemblyInfo.cache
+C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll

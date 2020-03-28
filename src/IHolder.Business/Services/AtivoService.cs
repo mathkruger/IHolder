@@ -26,7 +26,7 @@ namespace IHolder.Business.Services
 
         public async Task Delete(int id)
         {
-            if (_aporteRepository.GetBy(a => a.Ativo_id == id).Result.Any())
+            if (_aporteRepository.GetManyBy(a => a.Ativo_id == id).Result.Any())
                 Notify(new Notification("Este ativo não pode ser removido, pois encontra-se em lançamentos de distribuições e/ou aportes"));
             await _ativoRepository.Delete(id);
         }

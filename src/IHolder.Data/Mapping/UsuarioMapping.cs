@@ -18,6 +18,8 @@ namespace IHolder.Data.Mapping
             builder.Property(p => p.Email)
             .IsRequired()
             .HasColumnType("VARCHAR(40)");
+            builder.Property(p => p.Senha)
+            .HasColumnType("VARCHAR(240)");
             builder.Property(p => p.CPF)
             .IsRequired()
             .HasColumnType("VARCHAR(25)");

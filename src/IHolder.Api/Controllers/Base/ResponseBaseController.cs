@@ -14,7 +14,7 @@ namespace IHolder.Api.Controllers.Base
     [ApiController]
     public class ResponseBaseController : ControllerBase
     {
-        private readonly INotifier _notifier;
+        protected readonly INotifier _notifier;
         protected readonly IMapper _mapper;
         public ResponseBaseController(INotifier notifier, IMapper mapper)
         {

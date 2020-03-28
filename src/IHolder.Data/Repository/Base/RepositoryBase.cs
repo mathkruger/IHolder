@@ -31,7 +31,7 @@ namespace IHolder.Data.Repository.Base
             return await DbSet.FindAsync(id);
         }
 
-        public async Task<IEnumerable<TEntity>> GetBy(Expression<Func<TEntity, bool>> predicate)
+        public async Task<IEnumerable<TEntity>> GetManyBy(Expression<Func<TEntity, bool>> predicate)
         {
             return await DbSet.AsNoTracking().Where(predicate).ToListAsync();
         }
@@ -58,6 +58,11 @@ namespace IHolder.Data.Repository.Base
         public void Dispose()
         {
             Context?.Dispose();
+        }
+
+        public async Task<TEntity> GetBy(Expression<Func<TEntity, bool>> predicate)
+        {
+            return await DbSet.AsNoTracking().Where(predicate).FirstOrDefaultAsync();
         }
     }
 }
