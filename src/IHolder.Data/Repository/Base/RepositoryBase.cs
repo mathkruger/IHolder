@@ -38,7 +38,8 @@ namespace IHolder.Data.Repository.Base
         public virtual async Task<int> Insert(TEntity entity)
         {
             DbSet.Add(entity);
-            return await SaveChanges();
+            await SaveChanges();
+            return entity.Id;
         }
         public virtual async Task<int> Update(TEntity entity)
         {

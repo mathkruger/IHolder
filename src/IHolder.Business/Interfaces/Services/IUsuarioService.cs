@@ -6,7 +6,7 @@ using System.Text;
 
 namespace IHolder.Business.Interfaces.Services
 {
-    public interface IUsuarioService : IServiceGetBy<Usuario>
+    public interface IUsuarioService : IServiceGetBy<Usuario>, IServiceInsert<Usuario>
     {
     }
 }

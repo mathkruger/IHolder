@@ -9,6 +9,7 @@ using AutoMapper;
 using IHolder.Api.Configurations;
 using IHolder.Api.Controllers.Base;
 using IHolder.Api.ViewModels;
+using IHolder.Business.Entities;
 using IHolder.Business.Interfaces;
 using IHolder.Business.Interfaces.Notifications;
 using IHolder.Business.Interfaces.Services;
@@ -56,6 +57,19 @@ namespace IHolder.Api.Controllers.V1
             return ResponseBase(usuarioAutenticado);
         }
 
+        [HttpPost("cadastrar")]
+        public async Task<ActionResult<UsuarioViewModel>> Insert ([FromBody] UsuarioViewModel model)
+        {
+            if (!ModelState.IsValid) return ResponseBase(ModelState);
+
+            int response = await _usuarioService.Insert(_mapper.Map<Usuario>(model));
+            model.Id = response;
+            model.Senha = string.Empty;
+            return ResponseBase(model);
+
+        }
+
+
 
         private async Task<Usuario_resposta_autenticacaoViewModel> GenerateToken(UsuarioViewModel user)
         {
@@ -80,9 +94,10 @@ namespace IHolder.Api.Controllers.V1
 
             var response = new Usuario_resposta_autenticacaoViewModel()
             {
-                Usuario = user,
+                Nome = user.Nome,
                 Token = encodedToken,
-                Expira_em = Expires_in
+                Expira_em = Expires_in,
+                Email = user.Email
             };
             return response;
         }

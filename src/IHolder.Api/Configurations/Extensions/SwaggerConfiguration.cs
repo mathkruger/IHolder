@@ -54,17 +54,24 @@ namespace IHolder.Api.Configurations.Extensions
 
         public static IApplicationBuilder UseSwaggerConfiguration(this IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
-            if (!env.IsDevelopment())
+            if (env.IsDevelopment())
             {
                 app.UseMiddleware<SwaggerAuthorizedMiddleware>();
             }
-            app.UseSwagger();
+
+            app.UseSwagger(options =>
+            {
+                options.RouteTemplate = "documentation/{documentName}/documentation.json";
+            });
             app.UseSwaggerUI(
                 options =>
                 {
+                    options.RoutePrefix = "documentation";
                     foreach (var description in provider.ApiVersionDescriptions)
                     {
-                        options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
+                        options.SwaggerEndpoint($"/documentation/{description.GroupName}/documentation.json", description.GroupName.ToUpperInvariant());
+                        //options.SwaggerEndpoint("/docs/v1/docs.json", description.GroupName.ToUpperInvariant());
+
                     }
                 });
             return app;

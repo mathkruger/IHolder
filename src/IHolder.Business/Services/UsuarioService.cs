@@ -23,5 +23,10 @@ namespace IHolder.Business.Services
         {
             return await _repositoryBase.GetBy(predicate);
         }
+
+        public async Task<int> Insert(Usuario entity)
+        {
+            return await _repositoryBase.Insert(entity);
+        }
     }
 }

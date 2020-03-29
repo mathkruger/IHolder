@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace IHolder.Business.Interfaces.Services.Base
 {
+#warning renaming 
     public interface IServiceGetBy<TEntity> where TEntity : Entidade_base
     {
         Task<TEntity> GetBy(Expression<Func<TEntity, bool>> predicate);
