@@ -13,57 +13,57 @@ namespace IHolder.Data.Repository.Base
 {
     public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : Entidade_base, new()
     {
-        protected readonly IHolderContext Context;
-        protected readonly DbSet<TEntity> DbSet;
+        protected readonly IHolderContext _context;
+        protected readonly DbSet<TEntity> _dbSet;
 
         protected RepositoryBase(IHolderContext context)
         {
-            this.Context = context;
-            DbSet = context.Set<TEntity>();
+            this._context = context;
+            _dbSet = context.Set<TEntity>();
         }
 
         public virtual async Task<IEnumerable<TEntity>> GetAll()
         {
-            return await DbSet.ToListAsync();
+            return await _dbSet.ToListAsync();
         }
         public virtual async Task<TEntity> GetById(int id)
         {
-            return await DbSet.FindAsync(id);
+            return await _dbSet.FindAsync(id);
         }
 
         public async Task<IEnumerable<TEntity>> GetManyBy(Expression<Func<TEntity, bool>> predicate)
         {
-            return await DbSet.AsNoTracking().Where(predicate).ToListAsync();
+            return await _dbSet.AsNoTracking().Where(predicate).ToListAsync();
         }
         public virtual async Task<int> Insert(TEntity entity)
         {
-            DbSet.Add(entity);
+            _dbSet.Add(entity);
             await SaveChanges();
             return entity.Id;
         }
         public virtual async Task<int> Update(TEntity entity)
         {
-            DbSet.Update(entity);
+            _dbSet.Update(entity);
             return await SaveChanges();
         }
         public virtual async Task Delete(int id)
         {
-            DbSet.Remove(new TEntity { Id = id });
+            _dbSet.Remove(new TEntity { Id = id });
             await SaveChanges();
         }
 
         public async Task<int> SaveChanges()
         {
-            return await Context.SaveChangesAsync();
+            return await _context.SaveChangesAsync();
         }
         public void Dispose()
         {
-            Context?.Dispose();
+            _context?.Dispose();
         }
 
         public async Task<TEntity> GetBy(Expression<Func<TEntity, bool>> predicate)
         {
-            return await DbSet.AsNoTracking().Where(predicate).FirstOrDefaultAsync();
+            return await _dbSet.AsNoTracking().Where(predicate).FirstOrDefaultAsync();
         }
     }
 }

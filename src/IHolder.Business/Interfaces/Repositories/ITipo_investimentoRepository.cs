@@ -8,5 +8,6 @@ namespace IHolder.Business.Interfaces.Repositories
 {
     public interface ITipo_investimentoRepository : IRepositoryBase<Tipo_investimento>
     {
+
     }
 }

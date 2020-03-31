@@ -49,7 +49,7 @@ namespace IHolder.Api
 
             services.AddAuthenticationConfiguration(Configuration);
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -80,11 +80,6 @@ namespace IHolder.Api
 
             app.UseSwaggerConfiguration(env, provider);
 
-            //app.UseSwagger();
-            //app.UseSwaggerUI(c =>
-            //{
-            //    c.SwaggerEndpoint(url: "/swagger/v1/swagger.json", name: "IHolder Web Api V1");
-            //});
         }
     }
 }
