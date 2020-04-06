@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using IHolder.Api.Configurations;
 using IHolder.Api.Configurations.Extensions;
+using IHolder.Api.Configurations.Middleware;
 using IHolder.Data.Context;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -46,10 +47,11 @@ namespace IHolder.Api
 
             services.AddSwaggerConfiguration();
 
-
             services.AddAuthenticationConfiguration(Configuration);
 
             services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            
+            services.AddLoggerConfiguration();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,6 +73,7 @@ namespace IHolder.Api
             app.UseRouting();
 
             app.UseAuthentication();
+            app.UseMiddleware<ExceptionMiddleware>();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -79,6 +82,8 @@ namespace IHolder.Api
             });
 
             app.UseSwaggerConfiguration(env, provider);
+
+            app.UseLoggerConfiguration();
 
         }
     }

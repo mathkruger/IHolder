@@ -145,5 +145,9 @@ C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNe
 C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\Elmah.Io.AspNetCore.dll
+C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\Elmah.Io.Client.dll
+C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\Microsoft.Rest.ClientRuntime.dll
+C:\gitRepository\IHolder\src\IHolder.Api\bin\Debug\netcoreapp3.1\Elmah.Io.Extensions.Logging.dll
 C:\gitRepository\IHolder\src\IHolder.Api\obj\Debug\netcoreapp3.1\IHolder.Api.MvcApplicationPartsAssemblyInfo.cs
 C:\gitRepository\IHolder\src\IHolder.Api\obj\Debug\netcoreapp3.1\IHolder.Api.MvcApplicationPartsAssemblyInfo.cache

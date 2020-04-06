@@ -45,6 +45,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Elmah.Io.AspNetCore": {
+              "target": "Package",
+              "version": "[3.8.101, )"
+            },
+            "Elmah.Io.Extensions.Logging": {
+              "target": "Package",
+              "version": "[3.6.60, )"
+            },
             "Microsoft.AspNetCore.Authentication": {
               "target": "Package",
               "version": "[2.2.0, )"
