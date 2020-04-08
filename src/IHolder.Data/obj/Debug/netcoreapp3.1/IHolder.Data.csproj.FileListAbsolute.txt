@@ -11,3 +11,5 @@ C:\gitRepository\IHolder\src\IHolder.Data\bin\Debug\netcoreapp3.1\IHolder.Busine
 C:\gitRepository\IHolder\src\IHolder.Data\obj\Debug\netcoreapp3.1\IHolder.Data.csproj.CopyComplete
 C:\gitRepository\IHolder\src\IHolder.Data\obj\Debug\netcoreapp3.1\IHolder.Data.dll
 C:\gitRepository\IHolder\src\IHolder.Data\obj\Debug\netcoreapp3.1\IHolder.Data.pdb
+C:\gitRepository\IHolder\src\IHolder.Data\obj\Debug\netcoreapp3.1\IHolder.Data.csproj.CoreCompileInputs.cache
+C:\gitRepository\IHolder\src\IHolder.Data\obj\Debug\netcoreapp3.1\IHolder.Data.genruntimeconfig.cache
