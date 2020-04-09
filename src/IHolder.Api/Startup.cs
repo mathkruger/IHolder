@@ -58,16 +58,16 @@ namespace IHolder.Api
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
 
-            if (env.IsDevelopment())
-            {
-                app.UseCors(policyName: "Development");
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseCors(policyName: "Development");
-                app.UseHsts();
-            }
+            //if (env.IsDevelopment())
+            //{
+            app.UseCors(policyName: "Development");
+            app.UseDeveloperExceptionPage();
+            //}
+            //else
+            //{
+            //    app.UseCors(policyName: "Development");
+            //    app.UseHsts();
+            //}
 
             app.UseHttpsRedirection();
             app.UseRouting();
