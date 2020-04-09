@@ -41,8 +41,8 @@ namespace IHolder.Api.Configurations.Extensions
                 options.LogId = new Guid("3d92b498-fc4e-4230-8b73-04d041e29cb2");
                 options.HeartbeatId = "1";
             })
-            .AddCheck("Banco de dados populado", new SqlServerHealthCheck(configuration.GetConnectionString("IHolderConnection"), "SELECT TOP 1 ID FROM SITUACAO"))
-            .AddSqlServer(configuration.GetConnectionString("IHolderConnection"), name: "BancoSQL");
+            .AddCheck("Banco de dados populado", new SqlServerHealthCheck(configuration.GetConnectionString("IHolderConnectionDemo"), "SELECT TOP 1 ID FROM SITUACAO"))
+            .AddSqlServer(configuration.GetConnectionString("IHolderConnectionDemo"), name: "BancoSQL");
             services.AddHealthChecksUI();
             return services;
         }

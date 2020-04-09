@@ -37,7 +37,7 @@ namespace IHolder.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<IHolderContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("IHolderConnection")));
+            options.UseSqlServer(Configuration.GetConnectionString("IHolderConnectionDemo")));
 
             services.AddAutoMapper(typeof(Startup));
 

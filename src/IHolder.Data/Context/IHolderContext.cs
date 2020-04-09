@@ -9,10 +9,8 @@ namespace IHolder.Data.Context
 {
     public class IHolderContext : DbContext
     {
-        public IHolderContext(DbContextOptions options) : base(options)
-        {
-
-        }
+        public IHolderContext(DbContextOptions<IHolderContext> options)
+            : base(options) { }
 
         public DbSet<Aporte> Aportes { get; set; }
         public DbSet<Ativo> Ativos { get; set; }
