@@ -7,18 +7,12 @@ using System.Text;
 
 namespace IHolder.Data.Mapping
 {
-    public class OrientacaoMapping : IEntityTypeConfiguration<Orientacao>
+    public class OrientacaoMapping : Informacoes_baseMapping<Orientacao>
     {
-        public void Configure(EntityTypeBuilder<Orientacao> builder)
-        {
-            builder.HasKey(o => o.Id);
-            builder.Property(o => o.Descricao)
-                .IsRequired()
-                .HasColumnType("VARCHAR(30)");
-            builder.Property(o => o.Caracteristicas)
-                .IsRequired()
-                .HasColumnType("VARCHAR(240)");
 
+        public override void Configure(EntityTypeBuilder<Orientacao> builder)
+        {
+            base.Configure(builder);
             builder.HasMany(o => o.Distribuicoes_por_tipos_investimentos)
             .WithOne(d => d.Orientacao)
             .HasForeignKey(d => d.Orientacao_id);
@@ -33,5 +27,6 @@ namespace IHolder.Data.Mapping
 
             builder.ToTable("Orientacao");
         }
+
     }
 }

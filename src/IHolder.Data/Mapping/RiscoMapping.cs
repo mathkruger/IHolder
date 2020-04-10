@@ -7,18 +7,12 @@ using System.Text;
 
 namespace IHolder.Data.Mapping
 {
-    public class RiscoMapping : IEntityTypeConfiguration<Risco>
+    public class RiscoMapping : Informacoes_baseMapping<Risco>
     {
-        public void Configure(EntityTypeBuilder<Risco> builder)
-        {
-            builder.HasKey(r => r.Id);
-            builder.Property(r => r.Descricao)
-                .IsRequired()
-                .HasColumnType("VARCHAR(30)");
-            builder.Property(r => r.Caracteristicas)
-                .IsRequired()
-                .HasColumnType("VARCHAR(240)");
 
+        public override void Configure(EntityTypeBuilder<Risco> builder)
+        {
+            base.Configure(builder);
             builder.HasMany(r => r.Tipos_investimentos)
                 .WithOne(t => t.Risco)
                 .HasForeignKey(t => t.Risco_id);

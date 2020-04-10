@@ -40,6 +40,7 @@ namespace IHolder.Api.Controllers.V1
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<Tipo_investimentoViewModel>>> GetAll()
         {
             IEnumerable<Tipo_investimento> response = await _tipo_InvestimentoService.GetAll();

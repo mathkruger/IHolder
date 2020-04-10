@@ -7,14 +7,12 @@ using System.Text;
 
 namespace IHolder.Data.Mapping
 {
-    public class Tipo_investimentoMapping : IEntityTypeConfiguration<Tipo_investimento>
+    public class Tipo_investimentoMapping : Informacoes_baseMapping<Tipo_investimento>
     {
-        public void Configure(EntityTypeBuilder<Tipo_investimento> builder)
+        public override void Configure(EntityTypeBuilder<Tipo_investimento> builder)
         {
-            builder.HasKey(t => t.Id);
-            builder.Property(t => t.Descricao).IsRequired().HasColumnType("VARCHAR(30)");
+            base.Configure(builder);
             builder.Property(t => t.Risco_id).IsRequired();
-            builder.Property(t => t.Caracteristicas).IsRequired().HasColumnType("VARCHAR(240)");
             builder.HasMany(t => t.Distribuicoes_por_tipos_investimentos).WithOne(d => d.Tipo_investimento).HasForeignKey(t => t.Tipo_investimento_id);
             builder.HasMany(t => t.Produtos).WithOne(p => p.Tipo_investimento).HasForeignKey(p => p.Tipo_investimento_id);
             builder.ToTable("Tipo_investimento");

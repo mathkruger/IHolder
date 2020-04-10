@@ -7,21 +7,19 @@ using System.Text;
 
 namespace IHolder.Data.Mapping
 {
-    public class Distribuicao_por_tipo_investimentoMapping : IEntityTypeConfiguration<Distribuicao_por_tipo_investimento>
+    public class Distribuicao_por_tipo_investimentoMapping : Valores_baseMapping<Distribuicao_por_tipo_investimento>
     {
-        public void Configure(EntityTypeBuilder<Distribuicao_por_tipo_investimento> builder)
+        public override void Configure(EntityTypeBuilder<Distribuicao_por_tipo_investimento> builder)
         {
-            builder.HasKey(d => d.Id);
+            base.Configure(builder);
             builder.Property(d => d.Tipo_investimento_id).IsRequired();
             builder.Property(d => d.Usuario_id).IsRequired();
             builder.HasMany(d => d.Distribuicoes_por_produtos)
                 .WithOne(p => p.Distribuicao_por_tipo_investimento)
                 .HasForeignKey(p => p.Distribuicao_por_tipo_investimento_id);
-            builder.Property(p => p.Data_inclusao)
-            .IsRequired();
+            builder.Property(p => p.Data_inclusao).IsRequired();
 
             builder.ToTable("Distribuicao_por_tipo_investimento");
-
-        }
+        }        
     }
 }

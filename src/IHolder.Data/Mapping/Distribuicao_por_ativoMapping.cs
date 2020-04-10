@@ -7,15 +7,16 @@ using System.Text;
 
 namespace IHolder.Data.Mapping
 {
-    public class Distribuicao_por_ativoMapping : IEntityTypeConfiguration<Distribuicao_por_ativo>
+    public class Distribuicao_por_ativoMapping : Valores_baseMapping<Distribuicao_por_ativo>
     {
-        public void Configure(EntityTypeBuilder<Distribuicao_por_ativo> builder)
+        public override void Configure(EntityTypeBuilder<Distribuicao_por_ativo> builder)
         {
-            builder.HasKey(d => d.Id);
+            base.Configure(builder);
             builder.Property(p => p.Ativo_id).IsRequired();
             builder.Property(p => p.Data_inclusao).IsRequired();
             builder.Property(p => p.Orientacao_id).IsRequired();
             builder.ToTable("Distribuicao_por_ativo");
+
         }
     }
 }

@@ -7,18 +7,13 @@ using System.Text;
 
 namespace IHolder.Data.Mapping
 {
-    public class ProdutoMapping : IEntityTypeConfiguration<Produto>
+    public class ProdutoMapping : Informacoes_baseMapping<Produto>
     {
-        public void Configure(EntityTypeBuilder<Produto> builder)
+
+        public override void Configure(EntityTypeBuilder<Produto> builder)
         {
-            builder.HasKey(p => p.Id);
-            builder.Property(p => p.Descricao)
-            .IsRequired()
-            .HasColumnType("VARCHAR(30)");
+            base.Configure(builder);
             builder.Property(d => d.Tipo_investimento_id).IsRequired();
-            builder.Property(p => p.Caracteristicas)
-            .IsRequired()
-            .HasColumnType("VARCHAR(240)");
 
             builder.HasMany(p => p.Distribuicoes_por_produtos)
                .WithOne(d => d.Produto)
@@ -29,8 +24,6 @@ namespace IHolder.Data.Mapping
                 .HasForeignKey(a => a.Produto_id);
 
             builder.ToTable("Produto");
-
-
         }
     }
 }

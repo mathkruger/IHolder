@@ -7,12 +7,12 @@ using System.Text;
 
 namespace IHolder.Data.Mapping
 {
-    public class Distribuicao_por_produtoMapping : IEntityTypeConfiguration<Distribuicao_por_produto>
+    public class Distribuicao_por_produtoMapping : Valores_baseMapping<Distribuicao_por_produto>
     {
-        public Usuario Usuario { get; set; }
-        public void Configure(EntityTypeBuilder<Distribuicao_por_produto> builder)
+
+        public override void Configure(EntityTypeBuilder<Distribuicao_por_produto> builder)
         {
-            builder.HasKey(d => d.Id);
+            base.Configure(builder);
             builder.Property(p => p.Data_inclusao).IsRequired();
             builder.Property(p => p.Distribuicao_por_tipo_investimento_id).IsRequired();
             builder.Property(p => p.Produto_id).IsRequired();

@@ -7,17 +7,12 @@ using System.Text;
 
 namespace IHolder.Data.Mapping
 {
-    public class SituacaoMapping : IEntityTypeConfiguration<Situacao>
+    public class SituacaoMapping : Informacoes_baseMapping<Situacao>
     {
-        public void Configure(EntityTypeBuilder<Situacao> builder)
+
+        public override void Configure(EntityTypeBuilder<Situacao> builder)
         {
-            builder.HasKey(p => p.Id);
-            builder.Property(p => p.Descricao)
-                .IsRequired()
-                .HasColumnType("VARCHAR(30)");
-            builder.Property(p => p.Caracteristicas)
-                .IsRequired()
-                .HasColumnType("VARCHAR(240)");
+            base.Configure(builder);
 
             builder.HasMany(p => p.Situacoes_por_ativos)
             .WithOne(a => a.Situacao)
