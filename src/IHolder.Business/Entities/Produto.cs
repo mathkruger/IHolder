@@ -7,7 +7,11 @@ namespace IHolder.Business.Entities
 {
     public class Produto : Informacoes_base
     {
-        public int Tipo_investimento_id { get; set; }
+        public Produto(string descricao, string caracteristicas) : base(descricao, caracteristicas)
+        {
+        }
+
+        public Guid Tipo_investimento_id { get; set; }
         public Tipo_investimento Tipo_investimento { get; set; }
         public IEnumerable<Distribuicao_por_produto> Distribuicoes_por_produtos { get; set; }
         public IEnumerable<Ativo> Ativos { get; set; }

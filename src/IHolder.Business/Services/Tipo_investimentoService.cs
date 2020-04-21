@@ -19,7 +19,7 @@ namespace IHolder.Business.Services
             _tipo_investimentoRepository = tipo_investimentoRepository;
         }
 
-        public async Task Delete(int id)
+        public async Task Delete(Guid id)
         {
             #warning VALIDACAO DE REGISTRO USADO
             await _tipo_investimentoRepository.Delete(id);
@@ -30,14 +30,14 @@ namespace IHolder.Business.Services
             return await _tipo_investimentoRepository.GetAll();
         }
 
-        public async Task<int> Insert(Tipo_investimento entity)
+        public async Task<bool> Insert(Tipo_investimento entity)
         {
             #warning VALIDACAO DE DUPLICIDADE
             return await _tipo_investimentoRepository.Insert(entity);
 
         }
 
-        public async Task<int> Update(Tipo_investimento entity)
+        public async Task<bool> Update(Tipo_investimento entity)
         {
             return await _tipo_investimentoRepository.Update(entity);
         }

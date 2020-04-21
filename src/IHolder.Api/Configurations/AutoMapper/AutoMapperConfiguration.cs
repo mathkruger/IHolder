@@ -12,9 +12,6 @@ namespace IHolder.Api.Configurations.AutoMapper
     {
         public AutoMapperConfiguration ()
         {
-            CreateMap<Situacao, SituacaoViewModel>().ReverseMap();
-            CreateMap<Risco, RiscoViewModel>().ReverseMap();
-            CreateMap<Orientacao, OrientacaoViewModel>().ReverseMap();
             CreateMap<Tipo_investimento, Tipo_investimentoViewModel>().ReverseMap();
             CreateMap<Distribuicao_por_tipo_investimento, Distribuicao_por_tipo_investimentoViewModel>().ReverseMap();
             CreateMap<Produto, ProdutoViewModel>().ReverseMap();

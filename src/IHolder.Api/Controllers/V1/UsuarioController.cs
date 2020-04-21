@@ -57,19 +57,16 @@ namespace IHolder.Api.Controllers.V1
             return ResponseBase(usuarioAutenticado);
         }
 
-        [HttpPost("cadastrar")]
-        public async Task<ActionResult<UsuarioViewModel>> Insert ([FromBody] UsuarioViewModel model)
-        {
-            if (!ModelState.IsValid) return ResponseBase(ModelState);
+        //[HttpPost("cadastrar")]
+        //public async Task<ActionResult<UsuarioViewModel>> Insert ([FromBody] UsuarioViewModel model)
+        //{
+        //    //if (!ModelState.IsValid) return ResponseBase(ModelState);
 
-            int response = await _usuarioService.Insert(_mapper.Map<Usuario>(model));
-            model.Id = response;
-            model.Senha = string.Empty;
-            return ResponseBase(model);
-
-        }
-
-
+        //    //int response = await _usuarioService.Insert(_mapper.Map<Usuario>(model));
+        //    //model.Id = response;
+        //    //model.Senha = string.Empty;
+        //    //return ResponseBase(model);
+        //}
 
         private async Task<Usuario_resposta_autenticacaoViewModel> GenerateToken(UsuarioViewModel user)
         {
@@ -99,7 +96,7 @@ namespace IHolder.Api.Controllers.V1
                 Expira_em = Expires_in,
                 Email = user.Email
             };
-            return response;
+            return await Task.FromResult(response);
         }
 
 

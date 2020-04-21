@@ -32,7 +32,6 @@ namespace IHolder.Api.Configurations.Extensions
             services.AddSingleton<IUser, AspNetUser>();
 
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
-            services.AddScoped<ISituacaoRepository, SituacaoRepository>();
             services.AddScoped<IAporteRepository, AporteRepository>();
             services.AddScoped<IAtivoRepository, AtivoRepository>();
             services.AddScoped<IAtivoService, AtivoService>();
@@ -42,8 +41,6 @@ namespace IHolder.Api.Configurations.Extensions
 
             services.AddScoped<IRepositoryBase<Usuario>, UsuarioRepository>();
             services.AddScoped<IUsuarioService, UsuarioService>();
-
-
 
             return services;
         }
