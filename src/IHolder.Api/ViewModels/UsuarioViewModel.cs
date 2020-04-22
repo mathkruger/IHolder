@@ -1,9 +1,6 @@
 ﻿using IHolder.Api.ViewModels.Base;
 using IHolder.Business.Entities.Enumerators;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace IHolder.Api.ViewModels
 {
@@ -11,7 +8,7 @@ namespace IHolder.Api.ViewModels
     {
         public UsuarioViewModel()
         {
-            if (this.Id > 0)
+            if (this.Id != Guid.Empty)
                 this.Data_alteracao = DateTime.Now;
             else
                 this.Data_inclusao = DateTime.Now;
