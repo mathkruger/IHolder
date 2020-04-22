@@ -9,7 +9,7 @@ namespace IHolder.Tests.Domain.Tests
 
     public class Valores_baseTests
     {
-        Valores_base_tests valores_base = new Valores_base_tests(10);
+        Valores_base_tests valores_base = new Valores_base_tests(10, 6500);
 
         public Valores_baseTests()
         {
@@ -58,7 +58,7 @@ namespace IHolder.Tests.Domain.Tests
 
     public class Valores_base_tests : Valores_base
     {
-        public Valores_base_tests(decimal percentual_objetivo) : base(percentual_objetivo)
+        public Valores_base_tests(decimal percentual_objetivo, decimal valor_atual) : base(percentual_objetivo, valor_atual)
         {
         }
     }

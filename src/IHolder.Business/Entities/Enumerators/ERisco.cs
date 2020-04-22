@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace IHolder.Business.Entities.Enumerators
+﻿namespace IHolder.Business.Entities.Enumerators
 {
-    public enum ERisco : UInt16
+    public enum ERisco : ushort
     {
         Baixo = 0,
         MEdioBaixo = 1,

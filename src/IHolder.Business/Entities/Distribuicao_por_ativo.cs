@@ -9,7 +9,7 @@ namespace IHolder.Business.Entities
     public class Distribuicao_por_ativo : Valores_base
     {
 
-        public Distribuicao_por_ativo(Guid ativo_id, Guid usuario_id, decimal percentual_objetivo) : base(percentual_objetivo)
+        public Distribuicao_por_ativo(Guid ativo_id, Guid usuario_id, decimal percentual_objetivo, decimal valor_atual) : base(percentual_objetivo, valor_atual)
         {
             Ativo_id = ativo_id;
             Usuario_id = usuario_id;
@@ -26,14 +26,14 @@ namespace IHolder.Business.Entities
         public Ativo Ativo { get; set; }
         public Usuario Usuario { get; set; }
 
-        public void AtualizarOrientacao (decimal percentual_diferenca)   
-        {
-            if (percentual_diferenca <= 0)
-                Orientacao = EOrientacao.Manter;
-            else
-                Orientacao = EOrientacao.Comprar;
+        //public void AtualizarOrientacao (decimal percentual_diferenca)   
+        //{
+        //    if (percentual_diferenca <= 0)
+        //        Orientacao = EOrientacao.Manter;
+        //    else
+        //        Orientacao = EOrientacao.Comprar;
 
-        }
+        //}
 
     }
 }

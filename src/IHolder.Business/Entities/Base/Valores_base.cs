@@ -2,9 +2,10 @@
 {
     public abstract class Valores_base : Entidade_base
     {
-        protected Valores_base(decimal percentual_objetivo)
+        protected Valores_base(decimal percentual_objetivo, decimal valor_atual)
         {
             Percentual_objetivo = percentual_objetivo;
+            Valor_atual = valor_atual;
         }
 
         public decimal Percentual_objetivo { get; private set; }

@@ -2,7 +2,7 @@
 
 namespace IHolder.Business.Entities.Enumerators
 {
-    public enum ESituacao : UInt16
+    public enum ESituacao : ushort
     {
         Normal = 0,
         Oprtunidade = 1,

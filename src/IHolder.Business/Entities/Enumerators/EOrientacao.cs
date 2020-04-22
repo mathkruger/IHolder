@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace IHolder.Business.Entities.Enumerators
+﻿namespace IHolder.Business.Entities.Enumerators
 {
-    public enum EOrientacao : UInt16
+    public enum EOrientacao : ushort
     {
         Comprar = 0,
         Manter = 1,
