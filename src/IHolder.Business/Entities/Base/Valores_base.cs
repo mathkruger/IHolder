@@ -13,14 +13,14 @@
         public decimal Valor_atual { get; private set; }
         public decimal Valor_diferenca { get; private set; }
 
-        public void AtualizarPercentualAtual (decimal percentual_atual)
+        public void AtualizarPercentualAtual (decimal valor_investido_total, decimal valor_atual)
         {
-            Percentual_atual = percentual_atual;
+            Percentual_atual = (valor_atual / valor_investido_total) * 100;
         }
 
         public void AtualizarPercentualDiferenca()
         {
-            Percentual_diferenca = Percentual_objetivo = Percentual_atual;
+            Percentual_diferenca = Percentual_objetivo - Percentual_atual;
         }
 
         public void AtualizarValorAtual(decimal valor_atual)
@@ -28,9 +28,10 @@
             Valor_atual = valor_atual;
         }
 
-        public void AtualizarValorDiferenca(decimal valor_diferenca)
+        public void AtualizarValorDiferenca(decimal valor_atual)
         {
-            Valor_diferenca = valor_diferenca;
+            AtualizarPercentualDiferenca();
+            Valor_diferenca = (valor_atual / Percentual_atual) * Percentual_diferenca;
         }
 
     }

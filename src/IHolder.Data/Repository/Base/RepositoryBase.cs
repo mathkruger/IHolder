@@ -50,7 +50,7 @@ namespace IHolder.Data.Repository.Base
             //_dbSet.Remove(new TEntity { Id = id });
 
             string entityName = typeof(TEntity).Name;
-            int response = await _context.Database.ExecuteSqlRawAsync($"DELETE {entityName} WHERE ID = {0} ", new object[] { id });
+            int response = await _context.Database.ExecuteSqlRawAsync($"DELETE {entityName} WHERE ID = {0} ", new object[] {id});
             return response > 1;
         }
 
