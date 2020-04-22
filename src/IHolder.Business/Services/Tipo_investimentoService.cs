@@ -1,4 +1,5 @@
 ﻿using IHolder.Business.Entities;
+using IHolder.Business.Entities.Validations;
 using IHolder.Business.Interfaces.Notifications;
 using IHolder.Business.Interfaces.Repositories;
 using IHolder.Business.Interfaces.Services;
@@ -14,15 +15,11 @@ namespace IHolder.Business.Services
     public class Tipo_investimentoService : ServiceBase, ITipo_investimentoService
     {
         private readonly ITipo_investimentoRepository _tipo_investimentoRepository;
+        private readonly Tipo_investimentoValidation tipo_investimentoValidation;
         public Tipo_investimentoService(INotifier notifier, ITipo_investimentoRepository tipo_investimentoRepository) : base(notifier)
         {
             _tipo_investimentoRepository = tipo_investimentoRepository;
-        }
-
-        public async Task Delete(Guid id)
-        {
-            #warning VALIDACAO DE REGISTRO USADO
-            await _tipo_investimentoRepository.Delete(id);
+            tipo_investimentoValidation = new Tipo_investimentoValidation(_tipo_investimentoRepository);
         }
 
         public async Task<IEnumerable<Tipo_investimento>> GetAll()
@@ -32,13 +29,19 @@ namespace IHolder.Business.Services
 
         public async Task<bool> Insert(Tipo_investimento entity)
         {
-            #warning VALIDACAO DE DUPLICIDADE
+
+            if (!RunValidation(tipo_investimentoValidation, entity))
+                return false;
+
             return await _tipo_investimentoRepository.Insert(entity);
 
         }
 
         public async Task<bool> Update(Tipo_investimento entity)
         {
+            if (!RunValidation(tipo_investimentoValidation, entity))
+                return false;
+
             return await _tipo_investimentoRepository.Update(entity);
         }
     }

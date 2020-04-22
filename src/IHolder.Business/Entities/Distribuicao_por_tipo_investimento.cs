@@ -8,10 +8,10 @@ namespace IHolder.Business.Entities
 {
     public class Distribuicao_por_tipo_investimento : Valores_base
     {
-        public Distribuicao_por_tipo_investimento(Guid tipo_investimento_id, EOrientacao orientacao, Guid usuario_id, decimal percentual_objetivo, decimal valor_atual) : base(percentual_objetivo, valor_atual)
+        public Distribuicao_por_tipo_investimento(Guid tipo_investimento_id, Guid usuario_id, decimal percentual_objetivo, decimal valor_atual) : base(percentual_objetivo, valor_atual)
         {
             Tipo_investimento_id = tipo_investimento_id;
-            Orientacao = orientacao;
+            Orientacao = EOrientacao.Manter;
             Usuario_id = usuario_id;
         }
 

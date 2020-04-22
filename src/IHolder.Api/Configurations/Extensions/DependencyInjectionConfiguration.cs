@@ -42,6 +42,9 @@ namespace IHolder.Api.Configurations.Extensions
             services.AddScoped<IRepositoryBase<Usuario>, UsuarioRepository>();
             services.AddScoped<IUsuarioService, UsuarioService>();
 
+            services.AddScoped<IDistribuicao_por_tipo_investimentoRepository, Distribuicao_por_tipo_investimentoRepository>();
+            services.AddScoped<IDistribuicao_por_tipo_investimentoService, Distribuicao_por_tipo_investimentoService>();
+
             return services;
         }
     }
