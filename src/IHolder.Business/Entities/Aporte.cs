@@ -29,7 +29,7 @@ namespace IHolder.Business.Entities
         public Usuario Usuario { get; private set; }
 
 
-        public void CalcularPrecoTotal ()
+        public void CalcularPrecoTotal()
         {
             Preco_total = Preco_medio * Quantidade;
         }

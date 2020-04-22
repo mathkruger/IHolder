@@ -13,6 +13,8 @@ namespace IHolder.Business.Entities
         {
             Ativo_id = ativo_id;
             Usuario_id = usuario_id;
+            Data_inclusao = DateTime.Now;
+            Orientacao = EOrientacao.Manter;
         }
 
         public Guid Ativo_id { get; set; }
@@ -24,10 +26,9 @@ namespace IHolder.Business.Entities
         public Ativo Ativo { get; set; }
         public Usuario Usuario { get; set; }
 
-        public void AtualizarOrientacao ()
+        public void AtualizarOrientacao (decimal percentual_diferenca)   
         {
-            AtualizarPercentualDiferenca();
-            if (Percentual_diferenca <= 0)
+            if (percentual_diferenca <= 0)
                 Orientacao = EOrientacao.Manter;
             else
                 Orientacao = EOrientacao.Comprar;

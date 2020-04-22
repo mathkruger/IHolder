@@ -16,6 +16,7 @@ namespace IHolder.Business.Entities
             Cotacao = cotacao;
             Risco_id = risco_id;
             Usuario_inclusao_id = usuario_inclusao_id;
+            Data_inclusao = DateTime.Now;
 
         }
 
